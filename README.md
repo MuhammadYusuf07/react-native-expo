@@ -1,5 +1,6 @@
 # Welcome to your Expo app 👋
-![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/08fe0990-b98b-49e5-8ff2-1378dcbedb46)
+![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
+
 
 
 
