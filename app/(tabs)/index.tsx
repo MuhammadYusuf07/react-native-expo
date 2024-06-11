@@ -1,70 +1,69 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, Image, Button, Alert, TextInput } from 'react-native'
+import { useState } from 'react'
+import { styles } from './style'
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+function App() {
+  let [formInput, setFormInput] = useState('')
+
+  function handleSubmit() {
+    setFormInput(eval(formInput))
+  }
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View style={styles.container}>
+      <View style={styles.containerSibling}>
+        <Text style={styles.h1}>React Calculator</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Calculation"
+          onChangeText={setFormInput}
+          value={formInput}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+
+        <View style={styles.item}>
+          <Button title='Clear' color="red" onPress={() => { setFormInput('') }} />
+          <Button title='()' onPress={() => { setFormInput(`(${formInput})`) }} />
+          <Button title='%' onPress={() => { setFormInput(`${formInput}%`) }} />
+          <Button title=':' onPress={() => { setFormInput(`${formInput}/`) }} />
+        </View>
+
+        <View style={styles.item}>
+          <Button title='7' onPress={() => { setFormInput(`${formInput}7`) }} />
+          <Button title='8' onPress={() => { setFormInput(`${formInput}8`) }} />
+          <Button title='9' onPress={() => { setFormInput(`${formInput}9`) }} />
+          <Button title='x' onPress={() => { setFormInput(`${formInput}*`) }} />
+        </View>
+
+        <View style={styles.item}>
+          <Button title='4' onPress={() => { setFormInput(`${formInput}4`) }} />
+          <Button title='5' onPress={() => { setFormInput(`${formInput}5`) }} />
+          <Button title='6' onPress={() => { setFormInput(`${formInput}6`) }} />
+          <Button title='-' onPress={() => { setFormInput(`${formInput}-`) }} />
+        </View>
+
+        <View style={styles.item}>
+          <Button title='1' onPress={() => { setFormInput(`${formInput}1`) }} />
+          <Button title='2' onPress={() => { setFormInput(`${formInput}2`) }} />
+          <Button title='3' onPress={() => { setFormInput(`${formInput}3`) }} />
+          <Button title='+' onPress={() => { setFormInput(`${formInput}+`) }} />
+        </View>
+
+        <View style={styles.item}>
+          <Button title='0' onPress={() => { setFormInput(`${formInput}0`) }} />
+          <Button title='.' onPress={() => { setFormInput(`${formInput}.`) }} />
+        </View>
+
+        <Button
+          title="Submit Calculation"
+          color="#f194ff"
+          onPress={() => { handleSubmit() }}
+        />
+
+      </View>
+    </View>
+  )
+
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+export default App
