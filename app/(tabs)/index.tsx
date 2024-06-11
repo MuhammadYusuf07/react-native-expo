@@ -1,69 +1,109 @@
-import { StyleSheet, View, ScrollView, Text, Image, Button, Alert, TextInput } from 'react-native'
-import { useState } from 'react'
-import { styles } from './style'
+// index.tsx
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { styles } from './style';
 
+const App = () => {
+    const [formInput, setFormInput] = useState('');
 
-function App() {
-  let [formInput, setFormInput] = useState('')
+    const handleSubmit = () => {
+        try {
+            setFormInput(eval(formInput).toString());
+        } catch (error) {
+            console.error('Error during calculation:', error);
+            Alert.alert('Error', 'Perhitungan tidak valid');
+        }
+    };
 
-  function handleSubmit() {
-    setFormInput(eval(formInput))
-  }
+    return (
+        <View style={styles.container}>
+            <View style={styles.containerSibling}>
+                <Text style={styles.h1}>React Calculator</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Calculation"
+                    onChangeText={setFormInput}
+                    value={formInput}
+                />
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.containerSibling}>
-        <Text style={styles.h1}>React Calculator</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Calculation"
-          onChangeText={setFormInput}
-          value={formInput}
-        />
+                <View style={styles.item}>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput('')}>
+                        <Text style={styles.buttonText}>Clear</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`(${formInput})`)}>
+                        <Text style={styles.buttonText}>( )</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}%`)}>
+                        <Text style={styles.buttonText}>%</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}/`)}>
+                        <Text style={styles.buttonText}>/</Text>
+                    </TouchableOpacity>
+                </View>
 
-        <View style={styles.item}>
-          <Button title='Clear' color="red" onPress={() => { setFormInput('') }} />
-          <Button title='()' onPress={() => { setFormInput(`(${formInput})`) }} />
-          <Button title='%' onPress={() => { setFormInput(`${formInput}%`) }} />
-          <Button title=':' onPress={() => { setFormInput(`${formInput}/`) }} />
+                <View style={styles.item}>
+                    {/* Buttons 7-9 and Multiplication */}
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}7`)}>
+                        <Text style={styles.buttonText}>7</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}8`)}>
+                        <Text style={styles.buttonText}>8</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}9`)}>
+                        <Text style={styles.buttonText}>9</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}*`)}>
+                        <Text style={styles.buttonText}>*</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.item}>
+                    {/* Buttons 4-6 and Subtraction */}
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}4`)}>
+                        <Text style={styles.buttonText}>4</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}5`)}>
+                        <Text style={styles.buttonText}>5</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}6`)}>
+                        <Text style={styles.buttonText}>6</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}-`)}>
+                        <Text style={styles.buttonText}>-</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.item}>
+                    {/* Buttons 1-3 and Addition */}
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}1`)}>
+                        <Text style={styles.buttonText}>1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}2`)}>
+                        <Text style={styles.buttonText}>2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}3`)}>
+                        <Text style={styles.buttonText}>3</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}+`)}>
+                        <Text style={styles.buttonText}>+</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.item}>
+                    {/* Buttons 0, Decimal, and Submission */}
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}0`)}>
+                        <Text style={styles.buttonText}>0</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}.`)}>
+                        <Text style={styles.buttonText}>.</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                        <Text style={styles.buttonText}>Submit</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
+    );
+};
 
-        <View style={styles.item}>
-          <Button title='7' onPress={() => { setFormInput(`${formInput}7`) }} />
-          <Button title='8' onPress={() => { setFormInput(`${formInput}8`) }} />
-          <Button title='9' onPress={() => { setFormInput(`${formInput}9`) }} />
-          <Button title='x' onPress={() => { setFormInput(`${formInput}*`) }} />
-        </View>
-
-        <View style={styles.item}>
-          <Button title='4' onPress={() => { setFormInput(`${formInput}4`) }} />
-          <Button title='5' onPress={() => { setFormInput(`${formInput}5`) }} />
-          <Button title='6' onPress={() => { setFormInput(`${formInput}6`) }} />
-          <Button title='-' onPress={() => { setFormInput(`${formInput}-`) }} />
-        </View>
-
-        <View style={styles.item}>
-          <Button title='1' onPress={() => { setFormInput(`${formInput}1`) }} />
-          <Button title='2' onPress={() => { setFormInput(`${formInput}2`) }} />
-          <Button title='3' onPress={() => { setFormInput(`${formInput}3`) }} />
-          <Button title='+' onPress={() => { setFormInput(`${formInput}+`) }} />
-        </View>
-
-        <View style={styles.item}>
-          <Button title='0' onPress={() => { setFormInput(`${formInput}0`) }} />
-          <Button title='.' onPress={() => { setFormInput(`${formInput}.`) }} />
-        </View>
-
-        <Button
-          title="Submit Calculation"
-          color="#f194ff"
-          onPress={() => { handleSubmit() }}
-        />
-
-      </View>
-    </View>
-  )
-
-}
-
-export default App
+export default App;
