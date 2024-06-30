@@ -1,7 +1,7 @@
 # Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
 
-## Penjelasan Algoritma
+# Penjelasan Algoritma
 
 **State `formInput` dan `setFormInput`:**
 - `formInput` adalah variabel yang menyimpan ekspresi matematika yang dimasukkan oleh pengguna.
@@ -11,7 +11,7 @@
 
 State dalam konteks pengembangan perangkat lunak mengacu pada kondisi atau keadaan suatu objek pada suatu waktu tertentu. Dalam React Native, setiap komponen dapat memiliki state sendiri yang digunakan untuk menyimpan data dinamis yang dapat berubah selama siklus hidup komponen tersebut.
 
-## Contoh Penggunaan State dalam Komponen React Native
+### Contoh Penggunaan State dalam Komponen React Native
 
 ```jsx
 // State untuk menyimpan input dari pengguna
