@@ -1,4 +1,4 @@
-# Welcome to your Expo app 👋
+# Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
 
 
@@ -7,52 +7,30 @@
 
 
 
+## Penjelasan Algoritma
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**State `formInput` dan `setFormInput`:**
+- `formInput` adalah state yang menyimpan ekspresi matematika yang dimasukkan oleh pengguna.
+- `setFormInput` adalah fungsi untuk mengubah nilai dari `formInput`.
 
-## Get started
+**Fungsi `handleSubmit`:**
+- **Evaluasi Ekspresi Matematika:**
+  - Menggunakan `eval(formInput)` untuk mengevaluasi ekspresi matematika yang ada dalam `formInput`.
+  - Hasil evaluasi diubah menjadi string menggunakan `.toString()` dan disimpan kembali ke `formInput`.
+- **Penanganan Error:**
+  - Jika terjadi kesalahan selama evaluasi (misalnya, ekspresi tidak valid), pesan error dicetak di konsol menggunakan `console.error()` dan pengguna diberi tahu melalui `Alert.alert()`.
 
-1. Install dependencies
+**Layout Tombol Kalkulator:**
+- Tombol-tombol kalkulator dikelompokkan dalam beberapa baris menggunakan komponen `<View style={styles.item}>`.
+- Setiap baris berisi beberapa `<TouchableOpacity>` yang mewakili tombol-tombol kalkulator.
 
-   ```bash
-   npm install
-   ```
+**Penanganan Aksi Tombol:**
+- Setiap `<TouchableOpacity>` memiliki prop `onPress` yang menentukan aksi yang diambil saat tombol ditekan.
+- Contoh, tombol "Clear" mengosongkan `formInput`, tombol angka menambahkan angka tersebut ke `formInput`, dan tombol operasi matematika menambahkan operasi tersebut ke `formInput`.
 
-2. Start the app
+**File `style.tsx`:**
+- Digunakan untuk mengatur tata letak dan gaya dari komponen-komponen dalam aplikasi menggunakan StyleSheet dari React Native.
+- Menggunakan `styles` untuk menetapkan gaya seperti warna, ukuran, dan tata letak tombol.
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Kesimpulan
+Aplikasi Kalkulator ini memanfaatkan teknologi React Native dan TypeScript untuk menyediakan pengalaman interaktif dalam melakukan perhitungan matematika sederhana. Pengguna dapat dengan mudah memasukkan ekspresi matematika, dan aplikasi akan mengevaluasi secara langsung dengan menggunakan fungsi `eval()`. Dengan penanganan error yang baik, pengguna juga mendapatkan umpan balik yang jelas jika terjadi kesalahan dalam ekspresi yang dimasukkan. Dengan demikian, aplikasi ini tidak hanya memudahkan pengguna dalam melakukan perhitungan sehari-hari, tetapi juga memberikan pengalaman pengguna yang lebih interaktif dan informatif.
