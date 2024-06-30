@@ -127,6 +127,156 @@ export default App;
 ```
 - export default App: Mengekspor komponen App agar dapat digunakan di tempat lain dalam aplikasi.
 
+
+
+## Analoginya
+*Bayangkan Anda sedang membuat sebuah kalkulator fisik. Anda punya layar untuk menampilkan angka dan tombol-tombol untuk memasukkan angka dan operasi matematika.*
+
+## Penjelasan Algoritma dengan Analogi
+### 1. Inisialisasi Komponen dan State
+*Import dan inisialisasi:*
+
+*Bayangkan Anda mengeluarkan semua bagian kalkulator dari kotak: layar, tombol, dan papan rangkaian.
+Anda memasang semuanya di meja kerja Anda.*
+```
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { styles } from './style';
+```
+
+## 2. Deklarasi Komponen App
+### Membuat Kalkulator:
+
+*Anda mulai merakit kalkulator. Anda memutuskan bagaimana layar dan tombol akan bekerja.*
+```
+const App = () => {
+    const [formInput, setFormInput] = useState('');
+formInput adalah layar kalkulator. Ia menyimpan apa yang sedang ditampilkan di layar.
+setFormInput adalah cara Anda menulis sesuatu di layar.
+```
+
+## 3. Fungsi handleSubmit
+### Menangani Pengiriman Perhitungan:
+
+*Anda membuat mekanisme agar kalkulator bisa menghitung saat tombol sama dengan (=) ditekan.
+Ketika tombol ini ditekan, kalkulator akan mencoba menghitung ekspresi yang ada di layar.*
+```
+const handleSubmit = () => {
+    try {
+        setFormInput(eval(formInput).toString());
+    } catch (error) {
+        console.error('Error during calculation:', error);
+        Alert.alert('Error', 'Perhitungan tidak valid');
+    }
+};
+```
+
+- handleSubmit adalah fungsi yang dijalankan saat Anda menekan tombol = pada kalkulator.
+- eval(formInput) adalah mekanisme di dalam kalkulator yang mencoba menghitung ekspresi matematika yang Anda masukkan.
+*Jika ada kesalahan, kalkulator menampilkan pesan error.*
+
+## 4. Struktur Tampilan dan Tombol
+### Merakit Tampilan Kalkulator:
+
+*Anda menempatkan layar di bagian atas kalkulator.*
+*Di bawah layar, Anda menempatkan tombol-tombol yang bisa ditekan.*
+```
+return (
+    <View style={styles.container}>
+        <View style={styles.containerSibling}>
+            <Text style={styles.h1}>Kalkulator React</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Masukkan Perhitungan"
+                onChangeText={setFormInput}
+                value={formInput}
+            />
+```
+
+- View adalah kotak utama kalkulator yang menyatukan semua bagian.
+- Text adalah label yang menunjukkan ini adalah kalkulator.
+- TextInput adalah layar kalkulator tempat Anda bisa mengetik angka dan operasi matematika.
+
+## 5. Layout Tombol Kalkulator
+### Menambahkan Tombol-Tombol:
+
+*Anda menempatkan tombol-tombol angka dan operasi matematika di kalkulator.*
+*Setiap tombol terhubung ke layar kalkulator dan menambahkan karakter yang sesuai ketika ditekan.*
+
+```
+<View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput('')}>
+        <Text style={styles.buttonText}>Clear</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`(${formInput})`)}>
+        <Text style={styles.buttonText}>( )</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}%`)}>
+        <Text style={styles.buttonText}>%</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}/`)}>
+        <Text style={styles.buttonText}>/</Text>
+    </TouchableOpacity>
+</View>
+```
+
+- TouchableOpacity adalah tombol yang bisa ditekan.
+- onPress adalah apa yang terjadi ketika tombol ditekan, yaitu menambahkan karakter ke layar kalkulator.
+
+## 6. Baris-Baris Tombol Lain
+### Menambahkan Tombol Angka dan Operasi Lainnya:
+
+*Anda menambahkan baris demi baris tombol angka dan operasi lainnya seperti `+`, `-`, `*`, dan `/`.*
+*Setiap tombol memiliki fungsi yang sama, menambahkan karakter ke layar ketika ditekan.*
+
+```
+<View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}7`)}>
+        <Text style={styles.buttonText}>7</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}8`)}>
+        <Text style={styles.buttonText}>8</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}9`)}>
+        <Text style={styles.buttonText}>9</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}*`)}>
+        <Text style={styles.buttonText}>*</Text>
+    </TouchableOpacity>
+</View>
+```
+
+## 7. Tombol Submit
+### Menambahkan Tombol Submit:
+
+*Anda menambahkan tombol "=" yang akan menjalankan fungsi handleSubmit saat ditekan.*
+
+```
+<View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Submit</Text>
+    </TouchableOpacity>
+</View>
+```
+
+*Tombol Submit menjalankan fungsi handleSubmit untuk menghitung ekspresi matematika yang ada di layar.*
+
+## 8. Ekspor Komponen
+### Menyelesaikan Kalkulator:
+
+*Setelah semua bagian dirakit, Anda memasukkan kalkulator ke dalam kotak dan mengirimkannya untuk digunakan.*
+
+j```
+export default App;
+export default App adalah cara Anda mengemas kalkulator ini sehingga bisa digunakan oleh orang lain.
+```
+
+
+
+
+
+
+
 # Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
 
