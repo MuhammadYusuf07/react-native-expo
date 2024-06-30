@@ -11,13 +11,112 @@ import { styles } from './style'; // Import file style.tsx yang berisi StyleShee
 - View, Text, TextInput, TouchableOpacity, Alert: Komponen bawaan dari React Native untuk membangun antarmuka pengguna.
 - styles: Mengimpor gaya dari file style.tsx untuk styling komponen.
 
-  ## Komponen Utama: App
+## Komponen Utama: App
 ```
 const App = () => {
 ```
 
 *`App` adalah komponen fungsional utama yang mengandung semua logika dan tampilan kalkulator.*
+## State
+```
+const [formInput, setFormInput] = useState('');
+```
 
+- formInput: State yang digunakan untuk menyimpan input pengguna.
+- setFormInput: Fungsi untuk mengubah nilai formInput.
+
+## Fungsi `handleSubmit`
+```
+const handleSubmit = () => {
+    try {
+        // Mengevaluasi ekspresi matematika dan mengonversi hasil ke dalam string
+        setFormInput(eval(formInput).toString());
+    } catch (error) {
+        console.error('Error during calculation:', error);
+        Alert.alert('Error', 'Perhitungan tidak valid');
+    }
+};
+```
+
+- handleSubmit: Fungsi untuk menangani pengiriman perhitungan.
+- try-catch: Blok untuk menangani kesalahan dalam perhitungan.
+- eval: Fungsi JavaScript untuk mengevaluasi string sebagai ekspresi matematika.
+- Alert: Menampilkan pesan kesalahan jika perhitungan tidak valid.
+
+## Struktur Tampilan
+```
+return (
+    <View style={styles.container}>
+        <View style={styles.containerSibling}>
+            <Text style={styles.h1}>Kalkulator React</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Masukkan Perhitungan"
+                onChangeText={setFormInput}
+                value={formInput}
+            />
+```
+- View: Kontainer utama untuk mengelompokkan elemen.
+- Text: Komponen untuk menampilkan teks "Kalkulator React".
+- TextInput: Input teks untuk pengguna memasukkan perhitungan.
+- placeholder: Teks penanda di dalam input.
+- onChangeText: Fungsi untuk mengubah nilai formInput ketika teks berubah.
+- value: Nilai dari formInput.
+
+  ## Tombol-Tombol Kalkulator
+  ```
+  <View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput('')}>
+        <Text style={styles.buttonText}>Clear</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`(${formInput})`)}>
+        <Text style={styles.buttonText}>( )</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}%`)}>
+        <Text style={styles.buttonText}>%</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}/`)}>
+        <Text style={styles.buttonText}>/</Text>
+    </TouchableOpacity>
+</View>
+```
+
+- TouchableOpacity: Komponen untuk membuat tombol yang dapat ditekan.
+- onPress: Fungsi yang dijalankan ketika tombol ditekan.
+- setFormInput: Mengubah nilai formInput sesuai tombol yang ditekan.
+- Text: Teks di dalam tombol.
+
+## Baris-Bari Tombol Lain
+### Setiap baris tombol didefinisikan dengan cara yang sama, menambahkan angka atau operator ke `formInput`:
+
+```
+<View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}7`)}>
+        <Text style={styles.buttonText}>7</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}8`)}>
+        <Text style={styles.buttonText}>8</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}9`)}>
+        <Text style={styles.buttonText}>9</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}*`)}>
+        <Text style={styles.buttonText}>*</Text>
+    </TouchableOpacity>
+</View>
+```
+
+- Ini berlanjut untuk semua angka dan operator lain.
+
+## Tombol Submit
+```
+<View style={styles.item}>
+    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Submit</Text>
+    </TouchableOpacity>
+</View>
+```
+- Tombol Submit menjalankan fungsi handleSubmit ketika ditekan.
 
 # Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
