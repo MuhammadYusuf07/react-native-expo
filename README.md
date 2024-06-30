@@ -13,10 +13,10 @@ State dalam konteks pengembangan perangkat lunak mengacu pada kondisi atau keada
 
 ## Contoh Penggunaan State dalam Komponen React Native
 
+```jsx
 // State untuk menyimpan input dari pengguna
 const [formInput, setFormInput] = useState('');
-
-
+```
 
 
 **Fungsi `handleSubmit`:**
