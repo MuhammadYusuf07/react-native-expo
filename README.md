@@ -42,6 +42,34 @@ const [formInput, setFormInput] = useState('');
 **Layout Tombol Kalkulator:**
 - Tombol-tombol kalkulator dikelompokkan dalam beberapa baris menggunakan komponen `<View style={styles.item}>`.
 - Setiap baris berisi beberapa `<TouchableOpacity>` yang mewakili tombol-tombol kalkulator.
+- Tombol-tombol kalkulator diorganisir dalam beberapa baris menggunakan komponen <View style={styles.item}>. Setiap baris ini mengandung beberapa tombol <TouchableOpacity> yang bertindak sebagai input untuk operasi kalkulator.
+
+**Contoh Code:**
+``` <View style={styles.item}>
+    {/* Tombol Clear */}
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput('')}>
+        <Text style={styles.buttonText}>Clear</Text>
+    </TouchableOpacity>
+    {/* Tombol ( ) */}
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`(${formInput})`)}>
+        <Text style={styles.buttonText}>( )</Text>
+    </TouchableOpacity>
+    {/* Tombol % */}
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}%`)}>
+        <Text style={styles.buttonText}>%</Text>
+    </TouchableOpacity>
+    {/* Tombol / */}
+    <TouchableOpacity style={styles.button} onPress={() => setFormInput(`${formInput}/`)}>
+        <Text style={styles.buttonText}>/</Text>
+    </TouchableOpacity>
+</View>
+```
+
+##Penjelasan
+-Dalam contoh di atas, <View style={styles.item}> mengelompokkan tombol-tombol kalkulator ke dalam baris-baris. Setiap <TouchableOpacity> memiliki gaya yang ditentukan oleh styles.button dan styles.buttonText, yang mewakili tombol-tombol yang dapat ditekan untuk melakukan fungsi spesifik pada kalkulator.
+-Pengguna dapat menghapus input (Clear), menggunakan tanda kurung untuk kelompok operasi (( )), menghitung persentase (%), dan melakukan pembagian (/) dengan menekan tombol-tombol ini. Ini memungkinkan interaksi yang intuitif dan efisien dengan kalkulator yang diimplementasikan dalam aplikasi React Native.
+
+
 
 **Penanganan Aksi Tombol:**
 - Setiap `<TouchableOpacity>` memiliki prop `onPress` yang menentukan aksi yang dilakukan saat tombol ditekan.
