@@ -9,6 +9,19 @@
 
 ## Penjelasan Algoritma
 
+## Apa Itu State?
+
+State dalam konteks pengembangan perangkat lunak mengacu pada kondisi atau keadaan suatu objek pada suatu waktu tertentu. Dalam React Native, setiap komponen dapat memiliki state sendiri yang digunakan untuk menyimpan data dinamis yang dapat berubah selama siklus hidup komponen tersebut.
+
+### Karakteristik State dalam React Native:
+
+- **Data Dinamis:** State digunakan untuk menyimpan informasi yang dapat berubah selama interaksi pengguna dengan aplikasi.
+- **Local pada Komponen:** Setiap komponen memiliki state sendiri yang bersifat lokal, tidak dapat diakses langsung oleh komponen lain.
+- **Mutable (Dapat Diubah):** State dapat diperbarui menggunakan fungsi `setState`, sehingga memungkinkan komponen untuk merender ulang dengan data yang baru.
+- **Penting untuk UI:** Digunakan untuk menyimpan informasi yang mempengaruhi tampilan dan interaksi pengguna dalam aplikasi.
+
+
+
 **State `formInput` dan `setFormInput`:**
 - `formInput` adalah state yang menyimpan ekspresi matematika yang dimasukkan oleh pengguna.
 - `setFormInput` adalah fungsi untuk mengubah nilai dari `formInput`.
