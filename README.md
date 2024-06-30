@@ -1,3 +1,24 @@
+# Penjelasan Code 
+## Import Statements
+```
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { styles } from './style'; // Import file style.tsx yang berisi StyleSheet
+```
+
+- React: Digunakan untuk membuat komponen React.
+- useState: Hook yang digunakan untuk mendeklarasikan state dalam komponen fungsional.
+- View, Text, TextInput, TouchableOpacity, Alert: Komponen bawaan dari React Native untuk membangun antarmuka pengguna.
+- styles: Mengimpor gaya dari file style.tsx untuk styling komponen.
+
+  ## Komponen Utama: App
+```
+const App = () => {
+```
+
+*`App` adalah komponen fungsional utama yang mengandung semua logika dan tampilan kalkulator.*
+
+
 # Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
 
