@@ -26,6 +26,19 @@ const [formInput, setFormInput] = useState('');
 - **Penanganan Error:**
   - Jika terjadi kesalahan saat evaluasi (misalnya, ekspresi tidak valid), pesan error dicetak di konsol menggunakan `console.error()` dan pengguna diberi tahu melalui `Alert.alert()`.
 
+# Contoh Penggunaan State dan Fungsi handleSubmit
+
+## State untuk Menyimpan Input Pengguna
+
+State `formInput` digunakan untuk menyimpan input yang dimasukkan pengguna melalui komponen `TextInput`. Ini memungkinkan aplikasi untuk secara dinamis menanggapi perubahan input pengguna dan memprosesnya sesuai dengan logika yang telah ditentukan.
+
+
+
+```// State untuk menyimpan input dari pengguna
+const [formInput, setFormInput] = useState('');
+```
+
+
 **Layout Tombol Kalkulator:**
 - Tombol-tombol kalkulator dikelompokkan dalam beberapa baris menggunakan komponen `<View style={styles.item}>`.
 - Setiap baris berisi beberapa `<TouchableOpacity>` yang mewakili tombol-tombol kalkulator.
