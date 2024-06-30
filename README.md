@@ -266,10 +266,12 @@ return (
 
 *Setelah semua bagian dirakit, Anda memasukkan kalkulator ke dalam kotak dan mengirimkannya untuk digunakan.*
 
-j```
-export default App;
-export default App adalah cara Anda mengemas kalkulator ini sehingga bisa digunakan oleh orang lain.
 ```
+export default App;
+```
+
+*export default App adalah cara Anda mengemas kalkulator ini sehingga bisa digunakan oleh orang lain.*
+
 
 
 
