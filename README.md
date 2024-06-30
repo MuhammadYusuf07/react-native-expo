@@ -15,9 +15,6 @@ State dalam konteks pengembangan perangkat lunak mengacu pada kondisi atau keada
 
 Dalam contoh kode yang diberikan, terdapat penggunaan state dalam komponen `App` untuk menyimpan input dari pengguna menggunakan `useState`:
 
-```jsx
-// State untuk menyimpan input dari pengguna
-const [formInput, setFormInput] = useState('');
 
 
 
