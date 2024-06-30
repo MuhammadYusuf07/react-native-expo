@@ -63,7 +63,7 @@ return (
 - onChangeText: Fungsi untuk mengubah nilai formInput ketika teks berubah.
 - value: Nilai dari formInput.
 
-  ## Tombol-Tombol Kalkulator
+## Tombol-Tombol Kalkulator
   ```
   <View style={styles.item}>
     <TouchableOpacity style={styles.button} onPress={() => setFormInput('')}>
@@ -86,7 +86,7 @@ return (
 - setFormInput: Mengubah nilai formInput sesuai tombol yang ditekan.
 - Text: Teks di dalam tombol.
 
-## Baris-Bari Tombol Lain
+## Baris-Baris Tombol Lain
 ### Setiap baris tombol didefinisikan dengan cara yang sama, menambahkan angka atau operator ke `formInput`:
 
 ```
@@ -117,6 +117,12 @@ return (
 </View>
 ```
 - Tombol Submit menjalankan fungsi handleSubmit ketika ditekan.
+
+## Export Komponen
+```
+export default App;
+```
+- export default App: Mengekspor komponen App agar dapat digunakan di tempat lain dalam aplikasi.
 
 # Welcome to Kalkulator Expo 👋
 ![image](https://github.com/MuhammadYusuf07/react-native-expo/assets/124348537/b4371522-c097-4a3e-bc3c-f99a6d07f0d4)
