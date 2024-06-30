@@ -13,6 +13,15 @@
 
 State dalam konteks pengembangan perangkat lunak mengacu pada kondisi atau keadaan suatu objek pada suatu waktu tertentu. Dalam React Native, setiap komponen dapat memiliki state sendiri yang digunakan untuk menyimpan data dinamis yang dapat berubah selama siklus hidup komponen tersebut.
 
+## Contoh Penggunaan State dalam Komponen React Native
+
+Dalam contoh kode yang diberikan, terdapat penggunaan state dalam komponen `App` untuk menyimpan input dari pengguna menggunakan `useState`:
+
+```jsx
+// State untuk menyimpan input dari pengguna
+const [formInput, setFormInput] = useState('');
+
+
 ### Karakteristik State dalam React Native:
 
 - **Data Dinamis:** State digunakan untuk menyimpan informasi yang dapat berubah selama interaksi pengguna dengan aplikasi.
