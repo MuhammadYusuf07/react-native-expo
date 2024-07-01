@@ -1,5 +1,6 @@
 # Kalkulator dengan Expo
 ## Nama : Muhammad Yusuf
+[Kunjungi Expo](https://docs.expo.dev/get-started/start-developing/)
 
 # Penjelasan Code 
 ## Import Statements
