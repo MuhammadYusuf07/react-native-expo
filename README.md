@@ -3,6 +3,8 @@
 [Kunjungi Expo](https://docs.expo.dev/get-started/start-developing/)
 
 [Kunjungi Built-in React Hooks](https://react.dev/reference/react/hooks)
+### Extension :
+- ES7+React/Reduct/React-Native snippets
 
 # Penjelasan Code 
 ## Import Statements
